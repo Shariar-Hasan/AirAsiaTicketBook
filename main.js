@@ -40,6 +40,8 @@ function inputUpdate(increase,id) {
 //     ticketInfo.returnDate = this.value;
 // });
 document.getElementById('bookNow').addEventListener('click',function(){
+    let totalValue = calculateTotal();
+    updateTotal(totalValue);
     document.getElementById('confirmationPopup').style.display = 'block';
     document.getElementById('confirmBox').style.display = 'block';
     document.getElementById('purchaseBox').style.display = 'none';
