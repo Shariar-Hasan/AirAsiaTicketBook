@@ -159,6 +159,7 @@ nav ul li a:hover, a.active{
     border-radius: 20px;
     z-index: 99;
     margin: 0 auto;
+    margin-top: 100px ;
 
 }
 .confirmBox2{
@@ -169,6 +170,7 @@ nav ul li a:hover, a.active{
     z-index: 99;
     display: none;
     margin: 0 auto;
+    margin-top: 100px ;
 
 }
 .popupTitle{
