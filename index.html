@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <section class="main-content container">
+        <div id="form" class="booking-form">
+            <h3 class="text-primary">Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input id="f-from" class="inp-style" type="text" name="" value="Dhaka, Bangladesh" required>
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input id="f-to" class="inp-style" type="text" name="" value="New York, United States" required>
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                        <input id="date1" class="inp-style" type="date"  value="2020-02-10"required>
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input id="date2" class="inp-style" type="date" value="2020-02-20" required>
+                </div>
+            </div>
+            <div class="input-group f-class ">
+                <div>
+                    <label for="firstClass">First Class ($<span id="firstClassPrice">150</span> )</label><br>
+                    <div class="btn-group btnGroup">
+                        <button onclick="inputUpdate(false,this.name)" name="firstClass" class="btn btn-primary"><i class="fas fa-minus   "></i></button>
+
+                        <input id="firstClassInput" class="inp-style inp-width" type="text" value="0" required>
+                        
+                        <button onclick="inputUpdate(true,this.name)" name="firstClass" class="btn btn-primary"><i class="fas fa-plus    "></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group f-class">
+                <div>
+                    <label for="secondClass">Economy ($<span id="economyPrice">100</span> )</label><br>
+                    <div class="btn-group btnGroup">
+                        <button onclick="inputUpdate(false,this.name)" name="economy" class="btn btn-primary"><i class="fas fa-minus"></i></button>
+
+                        <input id="economyInput" class="inp-style inp-width" type="text" value="0" required>
+
+                        <button onclick="inputUpdate(true,this.name)" name="economy" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="subtotal">$0</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="vat">$0</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="total">$0</p>
+                    </div>
+                </div>
+            </div>
+            <button id="bookNow" class="btn-style">Book Now</button>
+        </div>
+
+        <div class="booking-content" id="doc">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
+        </div>
+    </section>
+        <section id="confirmationPopup">
+            <div id="confirmBox" class="confirmBox">
+                <div class="popupTitle">
+                    <h5 class="text-center text-primary">Do you want to confirm the ticket?</h5>
+                </div>
+                <div class="ticketDetails">
+                    <table class="table">
+                        <tr class="text-center">
+                            <th>Info</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Ticket No.</td>
+                            <td>8D3F4G6992020AP</td>
+                        </tr>
+                        <tr>
+                            <td>Flying From</td>
+                            <td id="from"></td>
+                        </tr>
+                        <tr>
+                            <td>Flying To</td>
+                            <td id="to"></td>
+                        </tr>
+                        <tr>
+                            <td>Departure</td>
+                            <td id="dDate"></td>
+                        </tr>
+                        <tr>
+                            <td>Return</td>
+                            <td id="rDate"></td>
+                        </tr>
+                        <tr>
+                            <td>First Class Seat</td>
+                            <td id="fcTicket"></td>
+                        </tr>
+                        <tr>
+                            <td>Economy Seat</td>
+                            <td id="eTicket"></td>
+                        </tr>
+                        <tr>
+                            <td>Total Cost</td>
+                            <td id="totalCost"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="confirmation text-right">
+                    <div class="btn-group">
+                        <button id="confirm" onclick="purchaseShow()" class="btn btn-primary">Confirm</button>
+
+                        <button id="cancel" onclick="getBack()" class="btn btn-primary">Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+            <div id="purchaseBox" class="confirmBox2">
+               <h5 class="text-primary text-center">Your ticket has been purchased</h5>
+               <h6 class="text-primary text-center">Thanks for visiting our website</h6>
+               <button onclick="getBack()" class="btn btn-primary mx-auto">OK</button>
+            </div>
+        </section>
+
+        <!--Thank You-->
+        <script src="main.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+            integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
