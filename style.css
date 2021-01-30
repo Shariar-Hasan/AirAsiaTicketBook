@@ -187,3 +187,8 @@ input:focus{
     outline: none;
 
 }
+.check{
+    font-size: 80px;
+    color: rgb(0, 165, 0);
+    margin-bottom: 40px;
+}
